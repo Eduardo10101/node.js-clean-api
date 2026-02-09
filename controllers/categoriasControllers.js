@@ -14,9 +14,10 @@ async function listar_id(req, res) {
 
 async function criar(req, res) {
     try {
-        const criando = req.body;
+        const {nome, descricao} = req.body;
+        const categoria = {nome, descricao}
 
-        await categorias.creatCategorias(criando)
+        await categorias.creatCategorias(categoria)
         res.status(201).json({
             Mensagem: 'Produto cadastrado'
         })
