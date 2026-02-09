@@ -37,7 +37,7 @@ async function store(req, res) {
     }
 }
 
-async function atulizar(req, res) {
+async function atualizar(req, res) {
     try {
         const { id } = req.params;
         const produto = req.body;
@@ -76,4 +76,4 @@ async function deletando(req, res) {
     }
 }
 
-export default {listar_produtos,index, store, atulizar, deletando, listar_id};
+export default {listar_produtos,index, store, atualizar, deletando, listar_id};
