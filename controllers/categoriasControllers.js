@@ -21,7 +21,7 @@ async function criar(req, res) {
             Mensagem: 'Produto cadastrado'
         })
     } catch (error) {
-        return res.status(500).json({Erro: 'Erro ao criar produtos'})
+        return res.status(500).json({Erro: 'Erro ao criar categoria'})
     }
 }
 
@@ -33,7 +33,7 @@ async function atualizar(req, res) {
         await categorias.updateCategorias(id, produto)
         res.status(200).json('categoria atualizada')
     } catch (error) {
-        return res.status(500).json({Erro: 'Erro ao atualizar produtos'})
+        return res.status(500).json({Erro: 'Erro ao atualizar categoria'})
         
     }
 }

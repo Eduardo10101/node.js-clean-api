@@ -57,7 +57,7 @@ async function listar_id(req, res) {
         const listar_id = await Produto.getALLcategorias(id)
         return res.json(listar_id)
     } catch (error) {
-        return res.status(500).json({Erro: 'Erro ao atualizar produtos'})
+        return res.status(500).json({Erro: 'Erro ao listar produtos'})
         
     }
 }
