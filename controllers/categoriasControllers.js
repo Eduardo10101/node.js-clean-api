@@ -3,6 +3,18 @@ async function listar_id(req, res) {
     try {
         const {id} = req.params;
         
+        const listando = await categorias.getcategorias(id)
+        return res.json(listando)
+    } catch (error) {
+        return res.status(500).json({Erro: 'Erro ao listar'})
+        
+    }
+}
+
+async function listar_id_categorias(req, res) {
+    try {
+        const {id} = req.params;
+        
         const listando = await categorias.getALLcategorias(id)
         return res.json(listando)
     } catch (error) {
@@ -11,7 +23,6 @@ async function listar_id(req, res) {
     }
 }
 
-
 async function criar(req, res) {
     try {
         const {nome, descricao} = req.body;
@@ -19,7 +30,7 @@ async function criar(req, res) {
 
         await categorias.creatCategorias(categoria)
         res.status(201).json({
-            Mensagem: 'Produto cadastrado'
+            Mensagem: 'categoria cadastrado'
         })
     } catch (error) {
         return res.status(500).json({Erro: 'Erro ao criar categoria'})
@@ -53,4 +64,4 @@ async function deletarCategoria(req, res) {
 }
 
 
-export default {listar_id, deletarCategoria, criar, atualizar}
+export default {listar_id, deletarCategoria, criar, atualizar, listar_id_categorias}

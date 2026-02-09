@@ -1,9 +1,18 @@
 import pool from "../database/connection.js";
 
 
-async function getALLcategorias(id){
+async function getcategorias(id){
     console.log(id)
     const [rows] = await pool.query(`SELECT * FROM categorias `);
+    return rows;
+}
+
+
+async function getALLcategorias(id){
+    console.log(id)
+    const [rows] = await pool.query(`SELECT * FROM produtos
+INNER JOIN categorias ON produtos.id_categorias = categorias.id
+WHERE categorias.id = ? `,[id]);
     return rows;
 }
 
@@ -32,4 +41,4 @@ async function delCategorias(id) {
 }
 
 
-export default{ getALLcategorias, delCategorias, creatCategorias, updateCategorias}
+export default{ getALLcategorias, getcategorias, delCategorias, creatCategorias, updateCategorias}
